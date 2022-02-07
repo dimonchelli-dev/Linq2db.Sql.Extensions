@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <LangVersion>default</LangVersion>
+        <Nullable>enable</Nullable>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+      <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+      <PackageReference Include="runtime.win-x86.runtime.native.System.Data.SqlClient.sni" Version="4.4.0" />
+      <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IntegrationTests.Utility\IntegrationTests.Utility.csproj" />
+      <ProjectReference Include="..\Linq2db.Sql.Extensions.Optimization\Linq2db.Sql.Extensions.Optimization.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Database\Scripts\CreateDatabaseScript.sql" />
+      <EmbeddedResource Include="Database\Scripts\CreateDatabaseScript.sql" />
+      <None Remove="Database\Scripts\InitialScript.sql" />
+      <EmbeddedResource Include="Database\Scripts\InitialScript.sql" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Database\Tables" />
+    </ItemGroup>
+
+</Project>
